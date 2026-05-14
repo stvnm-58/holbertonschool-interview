@@ -7,17 +7,14 @@ def pascal_triangle(n):
 
     triangle = [[1]]
 
-    while len(triangle) < n:
-        prev_row = triangle[-1]
-
-        new_row = [1]
+    for i in range(1, n):
+        prev_row = triangle[i - 1]
+        current_row = [1]
         
-
-        for i in range(len(prev_row) - 1):
-            new_row.append(prev_row[i] + prev_row[i + 1])
-            
-
-        new_row.append(1)
-        triangle.append(new_row)
+        for j in range(1, i):
+            current_row.append(prev_row[j - 1] + prev_row[j])
+        
+        current_row.append(1)
+        triangle.append(current_row)
 
     return triangle

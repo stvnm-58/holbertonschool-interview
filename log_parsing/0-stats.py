@@ -28,8 +28,6 @@ def main():
 
     try:
         for line in sys.stdin:
-            line_count += 1
-
             try:
                 parts = line.split()
                 status = int(parts[-2])
@@ -39,6 +37,9 @@ def main():
 
                 if status in status_codes:
                     status_codes[status] += 1
+                
+                # CORRECTION 1 : On ne compte la ligne que si elle est valide !
+                line_count += 1
 
             except (ValueError, IndexError):
                 continue
@@ -48,6 +49,8 @@ def main():
 
     except KeyboardInterrupt:
         print_stats(total_size, status_codes)
+        # CORRECTION 2 : On propage l'interruption pour quitter proprement
+        raise
 
 
 if __name__ == "__main__":

@@ -1,11 +1,13 @@
+#!/usr/bin/python3
+
 def validUTF8(data):
     # Number of continuation bytes we are expecting
     remaining_bytes = 0
-
+    
     for num in data:
         # Get only the 8 least significant bits
         byte = num & 0xFF
-
+        
         if remaining_bytes > 0:
             # Check if it's a valid continuation byte (starts with 10)
             if (byte >> 6) == 0b10:
@@ -25,6 +27,6 @@ def validUTF8(data):
             else:
                 # Malformed starting byte (e.g., starts with 10xxxxxx or 11111xxx)
                 return False
-
+                
     # If remaining_bytes is 0, all characters were completely processed
     return remaining_bytes == 0

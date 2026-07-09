@@ -13,7 +13,7 @@ def makeChange(coins: list[int], total: int) -> int:
         total (int): The target amount to reach.
 
     Returns:
-        int: Fewest number of coins needed, 0 if total <= 0, or -1 if impossible.
+        int: Fewest number of coins needed, 0 if total <= 0, or -1.
     """
     if total <= 0:
         return 0

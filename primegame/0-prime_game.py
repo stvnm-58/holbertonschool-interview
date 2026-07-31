@@ -6,13 +6,13 @@ def isWinner(x, nums):
     """Determine the winner of the Prime Game across multiple rounds.
 
     Maria and Ben play a game where they take turns removing a prime number
-    and all of its multiples from a set of consecutive integers starting from 
+    and all of its multiples from a set of consecutive integers starting from
     1 up to a given number n. The player who cannot make a move loses the game.
     Maria always goes first, and both players play optimally.
 
     Args:
         x (int): The number of rounds to play.
-        nums (list of int): A list containing the upper limit (n) for each round.
+        nums: A list containing the upper limit (n) for each round.
 
     Returns:
         str: The name of the player with the most wins ("Maria" or "Ben").
